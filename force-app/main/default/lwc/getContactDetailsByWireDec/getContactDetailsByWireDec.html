@@ -1,0 +1,27 @@
+<template>
+  <lightning-card title="Contact Details">
+      <div class="slds-m-around_medium">
+          <lightning-button label="New" title="New" onclick={handleNewClick}></lightning-button>&nbsp;
+           <lightning-button label="Edit" title="New" onclick={handleEditClick}></lightning-button>
+      </div>
+      <template if:true={showNewForm}>
+          <div class="slds-m-around_medium">
+              <lightning-input label="First Name" value={firstNameValue} onchange={handleFirstNameChange} name="FirstName"></lightning-input>
+              <lightning-input label="Last Name" value={lastNameValue} onchange={handleLastNameChange} name="LastName"></lightning-input>
+              <lightning-input label="Email" type="email" value={emailValue} onchange={handleEmailChange} name="Email"></lightning-input>
+              <lightning-input label="Phone" value={phoneValue} onchange={handlePhoneChange} name="Phone"></lightning-input>
+              <div class="slds-m-top_medium">
+                  <lightning-button label="Save" title="Save" onclick={handleSaveClick}></lightning-button>
+              </div>
+          </div>
+      </template>
+     
+      <lightning-datatable 
+          key-field="id"
+          data={ContactdataRecord}
+          columns={columns}
+          onrowselection={handleRowSelection}>
+      </lightning-datatable>
+
+  </lightning-card>   
+</template>
